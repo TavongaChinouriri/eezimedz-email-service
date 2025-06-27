@@ -9,5 +9,5 @@ spec:
   ports:
     - port: 3090
       targetPort: 3090
-      nodePort: 31805
+      nodePort: 32259
   type: NodePort
