@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eezimedz-email-service
+  namespace: java
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eezimedz-email-service
+  template:
+    metadata:
+      labels:
+        app: eezimedz-email-service
+    spec:
+      containers:
+      - name: eezimedz-email-service
+        image: tavongac/eezimedz-email-service:${IMAGE_TAG}
+        ports:
+        - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: eezimedz-email-service-secrets
